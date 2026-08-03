@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BotForge — разработка Telegram-ботов и AI-агентов</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+{% extends "landing/base.html" %}
 
-<header>
-    <strong>BotForge</strong>
-    <nav>
-        <a href="#advantages">Преимущества</a>
-        <a href="#services">Услуги</a>
-        <a href="#steps">Как работаем</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#contact">Контакты</a>
-    </nav>
-</header>
+{% block content %}
 
 <section id="hero">
     <h1>Telegram-боты и AI-агенты для вашего бизнеса</h1>
@@ -188,9 +171,4 @@
     <p>Email: example@example.com</p>
 </section>
 
-<footer>
-    <p>BotForge — 2026</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}

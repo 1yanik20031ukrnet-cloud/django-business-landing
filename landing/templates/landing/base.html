@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}BotForge — разработка Telegram-ботов и AI-агентов{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'landing/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <strong>BotForge</strong>
+    <nav>
+        <a href="#advantages">Преимущества</a>
+        <a href="#services">Услуги</a>
+        <a href="#steps">Как работаем</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <p>BotForge — 2026</p>
+</footer>
+
+</body>
+</html>
