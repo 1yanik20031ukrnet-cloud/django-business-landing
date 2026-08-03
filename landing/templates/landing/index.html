@@ -136,29 +136,34 @@
 
 <section id="contact-form">
     <h2>Оставить заявку</h2>
-    <form>
+
+    {% for message in messages %}
+        <p class="form-success">{{ message }}</p>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+
         <div>
-            <label for="name">Имя</label>
-            <input type="text" id="name" name="name">
+            <label for="{{ form.name.id_for_label }}">Имя</label>
+            {{ form.name }}
+            {% if form.name.errors %}<p class="form-error">{{ form.name.errors.0 }}</p>{% endif %}
         </div>
 
         <div>
-            <label for="contact">Telegram или телефон</label>
-            <input type="text" id="contact" name="contact">
+            <label for="{{ form.contact.id_for_label }}">Telegram или телефон</label>
+            {{ form.contact }}
+            {% if form.contact.errors %}<p class="form-error">{{ form.contact.errors.0 }}</p>{% endif %}
         </div>
 
         <div>
-            <label for="service">Какая услуга нужна</label>
-            <select id="service" name="service">
-                <option>Базовый бот</option>
-                <option>Бот + база данных</option>
-                <option>AI-агент</option>
-            </select>
+            <label for="{{ form.service.id_for_label }}">Какая услуга нужна</label>
+            {{ form.service }}
         </div>
 
         <div>
-            <label for="message">Сообщение</label>
-            <textarea id="message" name="message"></textarea>
+            <label for="{{ form.message.id_for_label }}">Сообщение</label>
+            {{ form.message }}
         </div>
 
         <button type="submit" class="btn btn-primary">Отправить заявку</button>
