@@ -52,7 +52,13 @@ python manage.py runserver
 
 ## Скриншоты
 
-*(добавить сюда `screenshots/desktop.png` и `screenshots/mobile.png`)*
+**Десктоп**
+![Десктопная версия](screenshots/desktop.png)
+
+**Мобильная версия**
+
+<img src="screenshots/mobile.png" alt="Мобильная версия" width="300">
+
 
 ## Ссылка на демонстрацию
 
