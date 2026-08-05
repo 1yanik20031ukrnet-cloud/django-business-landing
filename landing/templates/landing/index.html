@@ -96,20 +96,55 @@
         <div class="card">
             <h3>Базовый бот</h3>
             <p>Приём заявок, меню, уведомления администратору.</p>
-            <p class="price">от 15 000 ₽</p>
+            <p class="price">от $150</p>
         </div>
 
         <div class="card">
             <h3>Бот + база данных</h3>
             <p>Хранение заявок и клиентов, статусы, команды для администратора.</p>
-            <p class="price">от 25 000 ₽</p>
+            <p class="price">от $250</p>
         </div>
 
         <div class="card">
             <h3>AI-агент</h3>
             <p>Диалог на естественном языке, ответы на произвольные вопросы, сложные сценарии.</p>
-            <p class="price">от 40 000 ₽</p>
+            <p class="price">от $400</p>
         </div>
+    </div>
+</section>
+
+<section id="calculator">
+    <h2>Рассчитать примерную стоимость</h2>
+
+    <div class="calculator-box">
+        <form method="post" action="{% url 'home' %}#calculator">
+            {% csrf_token %}
+            <input type="hidden" name="form_name" value="calculator">
+
+            <div>
+                <label for="{{ calculator_form.service.id_for_label }}">{{ calculator_form.service.label }}</label>
+                {{ calculator_form.service }}
+            </div>
+
+            <div>
+                <label for="{{ calculator_form.scenarios.id_for_label }}">{{ calculator_form.scenarios.label }}</label>
+                {{ calculator_form.scenarios }}
+            </div>
+
+            <div class="calculator-checkbox">
+                {{ calculator_form.integrations }}
+                <label for="{{ calculator_form.integrations.id_for_label }}">{{ calculator_form.integrations.label }}</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Рассчитать</button>
+        </form>
+
+        {% if price_range %}
+            <div class="calculator-result">
+                Примерная стоимость: <strong>${{ price_range.0 }} – ${{ price_range.1 }}</strong>
+                <p>Точная цена зависит от деталей — обсудим в заявке.</p>
+            </div>
+        {% endif %}
     </div>
 </section>
 
@@ -164,6 +199,7 @@
 
     <form method="post">
         {% csrf_token %}
+        <input type="hidden" name="form_name" value="lead">
 
         <div>
             <label for="{{ form.name.id_for_label }}">Имя</label>

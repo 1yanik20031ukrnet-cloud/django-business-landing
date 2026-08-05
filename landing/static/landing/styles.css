@@ -361,6 +361,78 @@ section h2 {
     cursor: pointer;
 }
 
+/* Calculator */
+
+#calculator {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.calculator-box {
+    background-color: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.calculator-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.calculator-box label {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.calculator-box input,
+.calculator-box select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-size: 1rem;
+}
+
+.calculator-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calculator-checkbox input {
+    width: auto;
+}
+
+.calculator-checkbox label {
+    margin-bottom: 0;
+}
+
+.calculator-box button {
+    border: none;
+    cursor: pointer;
+}
+
+.calculator-result {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid #34d399;
+    background-color: #10261e;
+    border-radius: 8px;
+    color: #34d399;
+}
+
+.calculator-result p {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
 /* Contacts + footer */
 
 #contact {
