@@ -117,9 +117,8 @@
     <h2>Рассчитать примерную стоимость</h2>
 
     <div class="calculator-box">
-        <form method="post" action="{% url 'home' %}#calculator">
+        <form hx-post="{% url 'calculate' %}" hx-target="#calculator-result" hx-swap="outerHTML">
             {% csrf_token %}
-            <input type="hidden" name="form_name" value="calculator">
 
             <div>
                 <label for="{{ calculator_form.service.id_for_label }}">{{ calculator_form.service.label }}</label>
@@ -137,14 +136,10 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Рассчитать</button>
+            <span class="htmx-indicator calculator-loading">Считаю...</span>
         </form>
 
-        {% if price_range %}
-            <div class="calculator-result">
-                Примерная стоимость: <strong>${{ price_range.0 }} – ${{ price_range.1 }}</strong>
-                <p>Точная цена зависит от деталей — обсудим в заявке.</p>
-            </div>
-        {% endif %}
+        {% include "landing/partials/calculator_result.html" %}
     </div>
 </section>
 

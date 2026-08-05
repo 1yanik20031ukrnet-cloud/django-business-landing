@@ -1,0 +1,8 @@
+<div class="calculator-result-wrap" id="calculator-result">
+{% if price_range %}
+    <div class="calculator-result">
+        Примерная стоимость: <strong>${{ price_range.0 }} – ${{ price_range.1 }}</strong>
+        <p>Точная цена зависит от деталей — обсудим в заявке.</p>
+    </div>
+{% endif %}
+</div>
