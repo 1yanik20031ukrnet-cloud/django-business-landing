@@ -4,10 +4,6 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 html, body {
     max-width: 100%;
     overflow-x: clip;
@@ -380,6 +376,66 @@ section h2 {
 #contact-form button {
     border: none;
     cursor: pointer;
+}
+
+/* Phone / Telegram toggle */
+
+.contact-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#contact-form .contact-toggle-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #8b949e;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: border-color 150ms, color 150ms;
+}
+
+#contact-form .contact-toggle-btn.active {
+    border-color: #2AABEE;
+    color: #2AABEE;
+}
+
+.contact-field {
+    margin-bottom: 4px;
+}
+
+/* intl-tel-input dark theme */
+
+:root {
+    --iti-hover-color: #21262d;
+    --iti-border-color: #30363d;
+    --iti-country-selector-bg: transparent;
+    --iti-icon-color: #8b949e;
+}
+
+.iti {
+    width: 100%;
+}
+
+#phone-input {
+    width: 100%;
+    padding: 12px 14px 12px 90px;
+}
+
+.iti__country-list {
+    background-color: #161b22;
+    color: #e6edf3;
+}
+
+.iti__search-input,
+#contact-form .iti__search-input {
+    background-color: #0d1117;
+    color: #e6edf3;
+    border-radius: 0;
+    padding-left: 37px;
 }
 
 /* Calculator */

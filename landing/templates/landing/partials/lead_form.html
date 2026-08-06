@@ -1,0 +1,56 @@
+<div id="lead-form-wrap">
+
+{% if success %}
+    <p class="form-success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
+{% endif %}
+
+<form
+    hx-post="{% url 'submit_lead' %}"
+    hx-target="#lead-form-wrap"
+    hx-swap="outerHTML"
+    onsubmit="this.querySelector('button[type=submit]').disabled = true;"
+>
+    {% csrf_token %}
+
+    <div>
+        <label for="{{ form.name.id_for_label }}">Имя</label>
+        {{ form.name }}
+        {% if form.name.errors %}<p class="form-error">{{ form.name.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label>Как с вами связаться</label>
+
+        <div class="contact-toggle">
+            <button type="button" class="contact-toggle-btn active" data-mode="phone">Телефон</button>
+            <button type="button" class="contact-toggle-btn" data-mode="telegram">Telegram</button>
+        </div>
+
+        <div class="contact-field" data-field="phone">
+            <input type="tel" id="phone-input" placeholder="Номер телефона">
+        </div>
+
+        <div class="contact-field" data-field="telegram" hidden>
+            <input type="text" id="telegram-input" placeholder="@username">
+        </div>
+
+        {{ form.contact }}
+        {% if form.contact.errors %}<p class="form-error">{{ form.contact.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label for="{{ form.service.id_for_label }}">Какая услуга нужна</label>
+        {{ form.service }}
+        {% if form.service.errors %}<p class="form-error">{{ form.service.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label for="{{ form.message.id_for_label }}">Сообщение</label>
+        {{ form.message }}
+        {% if form.message.errors %}<p class="form-error">{{ form.message.errors.0 }}</p>{% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+</form>
+
+</div>

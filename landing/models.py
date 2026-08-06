@@ -19,7 +19,7 @@ class Lead(models.Model):
     service = models.CharField(
         "Услуга", max_length=20, choices=Service.choices, default=Service.BASIC_BOT
     )
-    message = models.TextField("Сообщение", blank=True)
+    message = models.TextField("Сообщение", max_length=1000, blank=True)
     created_at = models.DateTimeField("Дата создания", auto_now_add=True)
     status = models.CharField(
         "Статус", max_length=20, choices=Status.choices, default=Status.NEW
