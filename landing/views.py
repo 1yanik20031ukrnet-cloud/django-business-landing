@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from .forms import CalculatorForm, LeadForm
+from .notifications import send_telegram_notification
 from .pricing import calculate_price
 
 
@@ -12,7 +13,8 @@ def index(request):
     if request.method == "POST" and request.POST.get("form_name") == "lead":
         lead_form = LeadForm(request.POST)
         if lead_form.is_valid():
-            lead_form.save()
+            lead = lead_form.save()
+            send_telegram_notification(lead)
             messages.success(
                 request, "Заявка отправлена! Мы свяжемся с вами в ближайшее время."
             )
